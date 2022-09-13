@@ -29,13 +29,19 @@ namespace Mäng_Kontrolltöö
             return info;
         }
 
-        public int punktideArv()
+        public int punktideArv()//3.4 tehtud??? p.s за каждый элемент(asi) в списке(Ese) прибавить к сумме(sum) элемент(asi)
         {
+            int  sum = 0;
+            foreach (Ese asi in eses)
+            {
+                sum += asi.punktideArv();//без преписки .punktideArv(); выдавало ошибку о невозможности использовать оперант += к Ese и int пока разбирался наткнулся случайно на этот вариант
+            }
+
             Console.WriteLine(punktideArw + " punktid");
             return punktideArw;
         }
 
-        public void add(Ese asi) //3.3 tehtud
+        public void liseEse(Ese asi) //3.3 tehtud p.s new version посмотрел в инете как правильно добавлять элемент
         { 
             eses.Add(asi); 
         }

@@ -1,4 +1,6 @@
-﻿Tavaline haldjarüü;50
+﻿Elf;5000
+Tavaline haldjarüü;50
 Võlupüksid;100
 Välguvastane pross;250
 Võlukeep;1000
+viin;50
