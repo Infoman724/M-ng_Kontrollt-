@@ -58,7 +58,7 @@ namespace Mäng_Kontrolltöö
             }
         }
 
-        public int CompareTo(Tegelane other)//3.7 tehtud?? 
+        public int CompareTo(Tegelane other)//3.7 tehtud 
         {
             if (this.Esemed.Count > other.Esemed.Count)
             {
