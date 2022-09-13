@@ -8,8 +8,8 @@ namespace Mäng_Kontrolltöö
 {
     public class Ese : IÜksus
     {
-        int punktideArw;
-        string info;
+       private int punktideArw;
+       private string info;
 
 
 
