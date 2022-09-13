@@ -10,6 +10,6 @@ namespace Mäng_Kontrolltöö
     {
         int punktideArv();
         //1-ülesanne tehtud
-        string info();
+        string Info();
     }
 }
