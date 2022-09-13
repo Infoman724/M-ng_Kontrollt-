@@ -6,6 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Mäng_Kontrolltöö;
 
-Ese ese = new Ese("Elf",3500);
+Ese ese = new Ese("fireball",3500);
 ese.Info();
 ese.punktideArv();
