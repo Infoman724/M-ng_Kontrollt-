@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Mäng_Kontrolltöö;
 
-Ese ese = new Ese("fireball",3500);
-ese.Info();
-ese.punktideArv();
+//Ese ese = new Ese("fireball",3500);
+//ese.Info();
+//ese.punktideArv();
+Tegelane tegelane = new Tegelane("Elf");
+tegelane.Info();

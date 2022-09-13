@@ -9,8 +9,9 @@ namespace Mäng_Kontrolltöö
     internal class Tegelane : IÜksus
     {
         private string nimi;//3.1 tehtud
-        private List<Ese> eses;
-        
+        private List<Ese> Esemed;
+
+       
         private int punktideArw;//p.s не обяз
         private string info;//p.s не обяз
 
@@ -23,16 +24,19 @@ namespace Mäng_Kontrolltöö
 
 
 
-        public string Info()
+        public string Info()//3.5 tehtud 
         {
-            Console.WriteLine(info);
-            return info;
-        }
+            Console.WriteLine(nimi);
+            Console.WriteLine(punktideArv());
+            Console.WriteLine(Esemed.Count);
+            return nimi;//pinktideArv,Esemed p.s их тоже нунжо вернуть но пока выдает ошибку 
+        }    
+
 
         public int punktideArv()//3.4 tehtud??? p.s за каждый элемент(asi) в списке(Ese) прибавить к сумме(sum) элемент(asi)
         {
             int  sum = 0;
-            foreach (Ese asi in eses)
+            foreach (Ese asi in Esemed)
             {
                 sum += asi.punktideArv();//без преписки .punktideArv(); выдавало ошибку о невозможности использовать оперант += к Ese и int пока разбирался наткнулся случайно на этот вариант
             }
@@ -43,7 +47,7 @@ namespace Mäng_Kontrolltöö
 
         public void liseEse(Ese asi) //3.3 tehtud p.s new version посмотрел в инете как правильно добавлять элемент
         { 
-            eses.Add(asi); 
+            Esemed.Add(asi); 
         }
 
 
