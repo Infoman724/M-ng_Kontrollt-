@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Mäng_Kontrolltöö 
 {
-    internal class Tegelane : IÜksus
+    internal class Tegelane : IComparable<Tegelane>
     {
         private string nimi;//3.1 tehtud
         private List<Ese> Esemed;
 
        
         private int punktideArw;//p.s не обяз
-        private string info;//p.s не обяз
+        
 
         public Tegelane(string nimi)//3.2 tehtud
         {
@@ -58,7 +58,17 @@ namespace Mäng_Kontrolltöö
             }
         }
 
-
+        public int CompareTo(Tegelane other)//3.7 tehtud?? 
+        {
+            if (this.Esemed.Count > other.Esemed.Count)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
 
