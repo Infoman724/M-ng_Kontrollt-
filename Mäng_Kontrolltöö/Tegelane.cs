@@ -33,7 +33,7 @@ namespace Mäng_Kontrolltöö
         }    
 
 
-        public int punktideArv()//3.4 tehtud??? p.s за каждый элемент(asi) в списке(Ese) прибавить к сумме(sum) элемент(asi)
+        public int punktideArv()//3.4 tehtud p.s за каждый элемент(asi) в списке(Ese) прибавить к сумме(sum) элемент(asi)
         {
             int  sum = 0;
             foreach (Ese asi in Esemed)
@@ -45,11 +45,18 @@ namespace Mäng_Kontrolltöö
             return punktideArw;
         }
 
-        public void liseEse(Ese asi) //3.3 tehtud p.s new version посмотрел в инете как правильно добавлять элемент
+        public void liseEse(Ese asi) //3.3 tehtud p.s new version посмотрел в инете как правильно добавлять элемент только один черт пока выкидывает исключение
         { 
             Esemed.Add(asi); 
         }
 
+        public void väljastaEsemed()//3.6 tehtud
+        {
+            foreach (Ese asi in Esemed)
+            {
+                Console.WriteLine(asi);
+            }
+        }
 
 
     }
