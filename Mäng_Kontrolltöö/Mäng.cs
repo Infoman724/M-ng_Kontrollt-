@@ -26,7 +26,7 @@ namespace Mäng_Kontrolltöö
             }
         }
 
-        Tegelane suurimaesemeteArvuga()
+        Tegelane suurimaesemeteArvuga() 
         {
             return;
         }
