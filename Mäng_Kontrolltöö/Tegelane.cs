@@ -6,67 +6,69 @@ using System.Threading.Tasks;
 
 namespace Mäng_Kontrolltöö 
 {
-    internal class Tegelane : IComparable<Tegelane>
-    {
-        private string nimi;//3.1 tehtud
-        private List<Ese> Esemed;
-
-       
-        private int punktideArw;//p.s не обяз
-        
-
-        public Tegelane(string nimi)//3.2 tehtud
-        {
-            this.nimi = nimi;
-        }
-
-
-
-
-
-        public string Info()//3.5 tehtud 
-        {
-            Console.WriteLine(nimi);
-            Console.WriteLine(punktideArv());
-            Console.WriteLine(Esemed.Count);
-            return nimi;//pinktideArv,Esemed p.s их тоже нунжо вернуть но пока выдает ошибку 
-        }    
-
-
-        public int punktideArv()//3.4 tehtud p.s за каждый элемент(asi) в списке(Ese) прибавить к сумме(sum) элемент(asi)
-        {
-            int  sum = 0;
-            foreach (Ese asi in Esemed)
-            {
-                sum += asi.punktideArv();//без преписки .punktideArv(); выдавало ошибку о невозможности использовать оперант += к Ese и int пока разбирался наткнулся случайно на этот вариант
+    internal class Tegelane : IComparable<Tegelane>      //3.1 tehtud
+    {                                                    
+        private string nimi;                             //обявили переменную   "nimi" типа "string"     
+        private List<Ese> Esemed;                        //создали приватный список "Esemed" типа "Ese"
+                                                         
+                                                         
+        private int punktideArw;                         //обявили приватную переменную "punktideArw" типа "int"
+                                                         
+                                                         //3.2 tehtud
+        public Tegelane(string nimi)                     //создали конструктор который поможет в определении имени "героя"
+        {                                                
+            this.nimi = nimi;                            
+        }                                                
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+        public string Info()                             //3.5 tehtud 
+        {                                                
+            Console.WriteLine(nimi);                     
+            Console.WriteLine(punktideArv());            
+            Console.WriteLine(Esemed.Count);             
+            return nimi;                                 //pinktideArv,Esemed p.s их тоже нунжо вернуть но пока выдает ошибку 
+        }                                                
+                                                         
+                                                         
+        public int punktideArv()                         //3.4 tehtud  
+        {                                                
+            int  sum = 0;                                
+            foreach (Ese asi in Esemed)                  //за каждый элемент(asi) типа(Ese) в списке "Esemed"
+            {                                            
+                sum += asi.punktideArv();                //к переменной "sum" прибавить элемент "asi" с использованной функцией punktideArv???
+                                                         //p.s без преписки .punktideArv(); выдавало ошибку о невозможности использовать оперант += к Ese и int пока разбирался наткнулся случайно на этот вариант
             }
 
-            Console.WriteLine(punktideArw + " punktid");
-            return punktideArw;
+            Console.WriteLine(punktideArw + " punktid"); //и выводим на экран колво очков с их последующим возвратом
+            return punktideArw;                         
         }
 
-        public void liseEse(Ese asi) //3.3 tehtud p.s new version посмотрел в инете как правильно добавлять элемент только один черт пока выкидывает исключение
+        public void liseEse(Ese asi)                     //3.3 tehtud
+                                                         //p.s new version посмотрел в инете как правильно добавлять элемент в список
         { 
             Esemed.Add(asi); 
         }
 
-        public void väljastaEsemed()//3.6 tehtud
+        public void väljastaEsemed()                     //3.6 tehtud
         {
-            foreach (Ese asi in Esemed)
+            foreach (Ese asi in Esemed)                  //за каждый элемент "asi" типа "Ese" в списке "Esemed"
             {
-                Console.WriteLine(asi);
+                Console.WriteLine(asi);                  //в новую строку написать элемент "asi"(предмет)
             }
         }
-
-        public int CompareTo(Tegelane other)//3.7 tehtud 
+                                                         //3.7 tehtud 
+        public int CompareTo(Tegelane other)             //создаём сравнение типа "int" в котором сравниваем тип "Tegelane" с "other"(тем что укажет пользователь)
         {
-            if (this.Esemed.Count > other.Esemed.Count)
+            if (this.Esemed.Count > other.Esemed.Count)  //если количество элементов этого списка(посчитанно функцией Count) больше чем количество элементов списка укзанаго пользователем то---> 
             {
-                return 1;
+                return 1;                                //возвращаем еденицу 
             }
-            else
+            else                                         //по иному
             {
-                return -1;
+                return -1;                               //возвращаем -1
             }
         }
     }

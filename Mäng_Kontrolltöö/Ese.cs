@@ -16,16 +16,16 @@ namespace Mäng_Kontrolltöö
 
         
 
-        public Ese(string info,int punktideArv)//2.2 tehtud??? p.s написано реальизовать конструктор с двумя параметрами с помомощью 
-        {//которых можно указать имя количество очков не уверен что нужно было делать так но раз уж работаем с интерфейсам(чем то новым) то глупые ошибки приемлимы?
+        public Ese(string info,int punktideArv)         //2.2 tehtud
+        {
             this.info = info;
             this.punktideArw = punktideArv;
         }
-        //2.1 tehtud p.s написано сделать их приватными но выдает ошибку поэтому пока публичный.
+                                                        //2.1 tehtud p.s написано сделать их приватными но выдает ошибку поэтому пока публичный.
         public string Info()
         {
             Console.WriteLine(info);
-            return info;//2.4 tehtud
+            return info;                                //2.4 tehtud
         }
         
         public int punktideArv()
