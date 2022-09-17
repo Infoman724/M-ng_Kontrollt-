@@ -14,6 +14,8 @@ namespace Mäng_Kontrolltöö
             this.tegelane = tegelane;
         }
 
+       
+
         public List<Tegelane> SuurimaEsemeteArvuga()      //4.1 tehtud p.s функция нахождения персонажа с самым большим колво предметов
         {
             List<Tegelane> voitjad = new List<Tegelane>();//создали список "voitjad" типа "Tegelane"
@@ -47,7 +49,10 @@ namespace Mäng_Kontrolltöö
             return voitja;                                //и возвращаем переменную/массив "voitja"
         }
 
-
+        public int CompareTo(Tegelane? other)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 
