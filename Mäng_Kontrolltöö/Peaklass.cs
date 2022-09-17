@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mäng_Kontrolltöö
 {
-    internal class Peaklass                                                                     //создаём класс "Peaklass" с расширением "internal"
+    internal class Peaklass                                                                     //4.1 tehtud
+                                                                                                //создаём класс "Peaklass" с расширением "internal"
     {
-                                                                                                
+        public static Random rnd = new Random();                                                //переменная "rnd" типа "Random" для возможности использоавть функции случайности
         public static List<Ese> LoeEsemed()                                                     //создаём функцию "LoeEsemed" типа "Ese" который является списком
         {
             List<Ese> ReadEsed = new List<Ese>();                                               //создаём переменную "ReadEsed" типа "Ese" которая является списком и создаём этот список
@@ -24,6 +25,12 @@ namespace Mäng_Kontrolltöö
             return ReadEsed;                                                                    //и возвращаем список "ReadEsed"
         }
 
+        static string getNames()                                                                //4.2 tehtud
+                                                                                                //функция "getNames" содержит в себе массив имён длинною в 5 элементов и возвращающий их в случайном порядке учитывая их длинну
+        {
+            string[] names = { "Vlad", "Ilja", "Konstantin", "Radomir", "Miroslav" };
+            return names[rnd.Next(names.Length)];
+        }
 
 
 
