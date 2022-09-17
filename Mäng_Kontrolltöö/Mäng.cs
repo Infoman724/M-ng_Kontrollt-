@@ -33,18 +33,18 @@ namespace Mäng_Kontrolltöö
         }
         public Tegelane suurimaPunktideArvuga()           //4.2 tehtud p.s функция нахождения персонажа с самым большим колво очков
         {
-            int parim = 0;
-            Tegelane voitja = tegelane[0];
-            foreach (var t in tegelane)
+            int parim = 0;                                //создаём переменную "parim" типа "int" и приравниваем пока что к нулю
+            Tegelane voitja = tegelane[0];                //создали массив "voitja" типа "Tegelane" и обьявили его количество элементов на данном этапе 0
+            foreach (var t in tegelane)                   //за каждый обьект(t) типа "Tegelane" в массиве "tegelane" 
             {
-                int arv = t.punktideArv();
-                if (arv > parim)
+                int arv = t.punktideArv();                //создаём переменную "arv" типа "int" и приравниваем к элемен/там/ту "t" С использованием функции "punktideArv()"
+                if (arv > parim)                          //и если переменная "arv" больше чем переменная "parim" то
                 {
-                    parim = arv;
-                    voitja = t;
+                    parim = arv;                          //переменная "parim" будет равна переменной "arv"
+                    voitja = t;                           //переменная "voitja" будет равна переменной "t"
                 }
             }
-            return voitja;
+            return voitja;                                //и возвращаем переменную/массив "voitja"
         }
 
 
