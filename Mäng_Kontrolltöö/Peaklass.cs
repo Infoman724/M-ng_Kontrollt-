@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mäng_Kontrolltöö
 {
-    internal class Peaklass                                                                     //4.1 tehtud
+    internal class Peaklass                                                                     //5.1 tehtud фунция для считывания данных из файла
+
                                                                                                 //создаём класс "Peaklass" с расширением "internal"
     {
         public static Random rnd = new Random();                                                //переменная "rnd" типа "Random" для возможности использоавть функции случайности
@@ -25,17 +26,74 @@ namespace Mäng_Kontrolltöö
             return ReadEsed;                                                                    //и возвращаем список "ReadEsed"
         }
 
-        static string getNames()                                                                //4.2 tehtud
-                                                                                                //функция "getNames" содержит в себе массив имён длинною в 5 элементов и возвращающий их в случайном порядке учитывая их длинну
+        static string SaadaNimed()                                                              //4.2 tehtud
+                                                                                                //функция "SaadaNimed()" содержит в себе массив имён длинною в 5 элементов и возвращающий их в случайном порядке учитывая их длинну
         {
             string[] names = { "Vlad", "Ilja", "Konstantin", "Radomir", "Miroslav" };
             return names[rnd.Next(names.Length)];
         }
 
+        public static void Shuffle<T>(IList<T> list)                                            //5.4 tehtud 
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rnd.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+
+        static Tegelane[] liisaEse(Tegelane[] characters)                                       //5.3
+        {
+            List<Ese> itemList = LoeEsemed();
+            if (itemList.Count <= 0) throw new ArgumentOutOfRangeException();
+            foreach (Tegelane x in characters)
+            {
+                Shuffle(itemList);
+                int amount = rnd.Next(2, 10);
+                for (int i = 0; i < amount; i++)
+                {
+                    x.liseEse(itemList[i]);
+                }
+            }
+            return characters;
+        }
 
 
 
+                                                                                                //5.3 tehtud фунция для добавления персонажа из имен имеющихся в функции "getNames()"
+        static Tegelane[] LisaTegelane(int CharAmount)                                           //создаём ститеческую функцию "addTegelane()" типа "Tegelane" с необходимыми аргументами в виде "CharAmount" типа "int"
+        {
+            if (CharAmount < 4) throw new Exception();                                          //если количество указаных символов в "аргументе" было меньше 4 выкилываем новое исключение
+            Tegelane[] mängijad = new Tegelane[CharAmount];                                     //создаём массив "mängijad" типа "Tegelane" с привязкой к "CharAmount"
+            for (int i = 0; i < CharAmount; i++)                                                //если "i" меньше "CharAmount" к "i" прибавляем "i" и
+            {                                                                                   
+                Tegelane mängija = new Tegelane(SaadaNimed());                                  //создаём переменную "" типа "" и приравниваем к функции "SaadaNimed" типа "Tegelane"
+                mängijad[i] = mängija;                                                          //и приравниваем массив "mängijad" с учётом значения "i" к переменной "mängija"
+            }
 
+            return liisaEse(mängijad);                                                          //и возвращаем фунцию "liisaEse" с параметром в виде нашего массива "mängijad"
+        }
+
+
+                                                                                                //
+        static public void Uus_mang(int kogus)
+        {
+            Tegelane[] chactr = LisaTegelane(5);
+            Mäng mang = new Mäng(chactr);
+            foreach (Tegelane x in mang.SuurimaEsemeteArvuga())
+            {
+                Console.WriteLine(x.Info());
+            }
+            Tegelane voitja = mang.suurimaPunktideArvuga();
+            Console.WriteLine(voitja.Info());
+            Console.WriteLine("Mängijal olid need esemed:");
+            voitja.väljastaEsemed();
+
+        }
 
 
     }
